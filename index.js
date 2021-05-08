@@ -1,5 +1,6 @@
 const { encode, decode } = require('./src/cipher');
 const logError = require('./src/log-error');
+const TransformStream = require('./src/transform-stream');
 
-console.log(encode('ok', 1));
-logError('test error', 99);
+const transformStream = new TransformStream();
+process.stdin.pipe(transformStream).pipe(process.stdout);
